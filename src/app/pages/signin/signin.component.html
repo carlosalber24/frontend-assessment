@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="login-form">
+    <form [formGroup]="myform" method="post">
+      <h2 class="text-center">Brastlewark</h2> 
+      <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+           
+      <div class="form-group">
+        <input type="text" formControlName="username" name="form-username" class="form-control" placeholder="Username" required="required">
+      </div>
+      <div class="form-group">
+        <input type="password" (keydown.enter)="signIn();" class="form-control" formControlName="password" name="form-password" placeholder="Password" required="required">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="loader" (click)="signIn()">
+          <span class="btn-txt" *ngIf="!loader">Log in</span>
+          <i class="fa fa-circle-o-notch fa-spin" *ngIf="loader"></i>
+        </button>
+      </div>        
+    </form>
+  </div>
+
+  <nav class="navbar navbar-dark mt-5">
+    <div class="navbar-expand m-auto navbar-text">
+      Made by <a target="_blank" href="https://www.linkedin.com/in/carlos-rodr%C3%ADguez-gonzalez-b42ab8a3/">Carlos Rodríguez</a>
+    </div>
+  </nav>
+</div>  

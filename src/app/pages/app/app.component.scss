@@ -1,0 +1,23 @@
+.search-wrapper{
+  background-color:rgba(255, 255, 255, 0.7);
+  border-radius: 0.3rem;
+  padding: 2em 3em 3em 3em;
+}
+
+.table-wrapper{
+  background-color:rgba(255, 255, 255, 0.9);
+  border-radius: 0.3rem;
+  padding: 2em 3em 3em 3em;
+  margin-top: 20px;
+  .my-pagination{
+    margin: 0 auto;
+  }
+
+  .progress {
+    height: 2rem;
+  }
+
+  .far{
+    cursor: pointer;
+  }
+}

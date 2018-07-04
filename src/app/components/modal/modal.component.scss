@@ -1,0 +1,38 @@
+.modal {
+  .close{
+    outline: none;
+  }
+
+  .modal-body {
+    .card {
+      margin: 0 auto;
+      text-align: center;
+      border: none !important;
+      img {
+        width: 180px;
+        height: 180px;
+        margin: -5px auto;
+        border-radius: 50%;
+      }
+
+      .list-group {
+        .list-head {
+          margin: 0;
+          font-weight: 600;
+        }
+
+        .list-info {
+          margin-bottom: -5px;
+          display: block;
+        }
+      }
+
+      .profession-label {
+        font-style: italic;
+        .comma {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<div class="modal inmodal fade" style="top: 107px;" tabindex="-1" role="dialog" data-backdrop="static" aria-hidden="true" #thisModal>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" [ngClass]="{'hide': !(has('mhead') || title) }">
+                <h4 *ngIf='title' class="modal-title">{{ title }}</h4>
+                <button *ngIf="showClose" type="button" class="close" (click)="closeInternal()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <ng-content select="mhead"></ng-content>
+            </div>
+            <div class="modal-body">
+              <div class="card" style="width: 20rem;" *ngIf="content">
+                <img class="card-img-top" src="{{content.thumbnail}}">
+                <div class="card-body">
+                  <h4 class="card-title">{{content.name}}</h4>
+                  <p class="card-text" *ngIf="content.professions && content.professions.length">
+                    <span class="profession-label" *ngFor="let profession of content.professions, let i = index">
+                      {{profession}}
+                      <span class="comma" *ngIf="i != (content.professions.length - 1)">,</span>
+                    </span>
+                  </p>
+                  <ul class="list-group">
+                    <li class="list-group-item" *ngIf="content.age">
+                      <p class="list-head">Age</p>
+                      <p class="list-info">{{content.age}}</p>
+                    </li>
+                    <li class="list-group-item" *ngIf="content.height">
+                      <p class="list-head">Height</p>
+                      <p class="list-info">{{content.height}}</p>
+                    </li>
+                    <li class="list-group-item" *ngIf="content.weight">
+                      <p class="list-head">Weight</p>
+                      <p class="list-info">{{content.weight}}</p>
+                    </li>
+                    <li class="list-group-item" *ngIf="content.hair_color">
+                      <p class="list-head">Hair Color</p>
+                      <p class="list-info">{{content.hair_color}}</p>
+                    </li>
+                    <li class="list-group-item" *ngIf="content.friends && content.friends.length">
+                      <p class="list-head">Friends</p>
+                      <i class="list-info" *ngFor="let friend of content.friends">{{friend}}</i>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

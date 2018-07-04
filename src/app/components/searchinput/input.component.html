@@ -1,0 +1,15 @@
+<ng-template #rt let-r="result" let-t="term">
+  {{r.name}}
+</ng-template>
+
+<input 
+  type="text" 
+  name="searching" 
+  class="searching"
+  id="searching"
+  (change)="changeInputValue($event)"
+  [(ngModel)]="model"
+  [ngbTypeahead]="search"
+  [resultTemplate]="rt"
+  [inputFormatter]="formatter"
+>

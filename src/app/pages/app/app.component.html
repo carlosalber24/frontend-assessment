@@ -1,0 +1,50 @@
+  <app-layout>
+    <div class="search-wrapper">
+      <h1>Search for inhabitants</h1>
+      <app-search-input [orcsList]="myGlobalList" (searchValue)="searchChange($event)"></app-search-input>
+    </div>
+
+    <div class="table-wrapper">
+      <div class="progress" *ngIf="!myTableList.length">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">Loading Information</div>
+      </div>
+
+      <table class="table" *ngIf="myTableList.length">
+        <thead>
+          <tr align="center">
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Height</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr align="center" *ngFor="let list of myTableList | paginate: { itemsPerPage: 10, currentPage: page, totalItems: totalGlobalList, id: 'pagination' }">
+            <th scope="row">{{list.id}}</th>
+            <td>{{list.name}}</td>
+            <td>{{list.age}}</td>
+            <td>{{list.height}}</td>
+            <td>{{list.weight}}</td>
+            <td><i (click)="open(list);" class="far fa-eye"></i></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pagination-controls  
+        id="pagination"
+        class="my-pagination"
+        (pageChange)="page = $event"
+        maxSize="6"
+        directionLinks="true"
+        autoHide="true"
+        previousLabel="Previous"
+        nextLabel="Next">
+      </pagination-controls>
+    </div>
+
+    <app-modal [title]='"Gnome Profile"' [showClose]='true' [content]='modalContent' (onClose)="close()" #editModal>
+      {{ bindModal(editModal) }}
+    </app-modal>
+  </app-layout>

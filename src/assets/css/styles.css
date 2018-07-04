@@ -1,0 +1,24 @@
+/* We can add global styles to this file, and also import other style files */
+
+/* Let's import bootstrap library to add nice styling to our application */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/* Let's import font-awesome library to add nice font icons to our application */
+@import "~font-awesome/css/font-awesome.css";
+
+body { 
+  background: url("../images/app-background.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.ngx-pagination{
+  background: white;
+  border-radius: 3px;
+  padding: 5px;
+  width: 43%;
+  margin: 30px auto !important;
+  text-align: center;
+}
